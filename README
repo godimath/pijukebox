@@ -1,0 +1,20 @@
+##Installation##
+
+Copy pijukebox.conf into /etc/, and modify the [Location] directive to point to the location of pijukebox (Default users home)
+Do NOT add a trailing slash unless you want to go fix all the code :)
+
+Make initpijukebox.sh get called on boot:
+
+	-Add the following line to /etc/rc.local:
+	
+		/path/to/pijukebox/initpijukebox.sh &
+	
+	-Don't forget the ampersand and the end. If you do the system will wait for the script to finish
+	 before continuing to boot, which it won't, so the system will hang. 
+
+Point your web server to serve /path/to/pijukebox/webpage
+
+Add a timer for the backlight by add the following to /etc/crontab
+
+	*/1 * * * * root /usr/bin/python /path/to/pijukebox/scripts/python/updateScreen.py BOFF
+

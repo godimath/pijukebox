@@ -1,0 +1,36 @@
+.button{
+	width: 100%;
+	height: 200;
+	font-size: 50;
+}
+.player{
+	width: 100%;
+	height: 180px;
+}
+
+.skip{
+font-size: 50;
+  width: 49%;
+  height: 180px;
+}
+
+.play{
+font-size: 50;
+  width:100%;
+  height:180px;
+}
+
+.volume{
+font-size: 50;
+  width: 49%;
+  height: 180px;
+
+}
+
+.reset{
+font-size: 50;
+  width: 100%;
+  height: 180px;
+
+}
+
