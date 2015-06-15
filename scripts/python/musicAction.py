@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 import os
 from mpd import MPDClient
@@ -75,10 +76,16 @@ def musicAction(action):
 	elif(action=="volume"):
 		print m.status()["volume"]
 	else:
+		try:
+			intaction=int(action)
+			#print "Playing id:", intaction
+			m.play(intaction)
+		except:
+
 		#print m.currentsong()
 		#print m.status()
 		#print m.playlist()
-		print "Unrecognized command: " + action
+			print "Unrecognized command: " + action
 
 	m.close()
 	m.disconnect()

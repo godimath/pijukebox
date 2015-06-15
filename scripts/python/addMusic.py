@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from mpd import MPDClient
 import sys
 
@@ -7,8 +9,6 @@ for i in range(0,len(sys.argv)):
 	if(i!=0):
 		file+=sys.argv[i]
 url+=file
-print "Adding File: ", file
-
 m = MPDClient()
 m.connect("localhost",6600)
 m.add(url)

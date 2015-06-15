@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 import os
 from mpd import MPDClient
@@ -41,9 +42,9 @@ f.close()
 
 htitle = "<p>Track: <b>" + title + "</b></p>"
 hartist = "<p>Artist: <b>" + artist + "</b></p>"
-hvol = "<p>Volume: <b>" + vol + "</b></p>"
-hstate = "<p>State: <b>" + state + "</b></p>"
-hfile = "<p><audio controls><source src=\"" + file + "\" type=\"audio/mpeg\"></audio></p>"
+hvol = "<p>Volume: <b id=volume>" + vol + "</b></p>"
+hstate = "<p>State: <b id=state>" + state + "</b></p>"
+hfile = "<p><audio controls class=player><source src=\"" + file + "\" type=\"audio/mpeg\"></audio></p>"
 hlink = "<p><a href=\"" + file + "\">Download</a></p>"
 
 h = open(hstatfile, 'w')
