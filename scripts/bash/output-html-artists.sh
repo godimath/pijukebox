@@ -13,7 +13,7 @@ then
 		then
 			id=$track
 		fi
-		echo "<input class=track type=submit name=id value=$id>$track</input>"
+		echo "<input class=half-button type=submit name=id value=$id>$track</input>"
 	done
         echo "</form>"
 else
@@ -21,7 +21,7 @@ else
 	echo "<form action=/ method=post>"
 	for artist in $(ls ../data --format=single-column)
 	do
-		echo "<input class=artist name=artist type=submit value=\"$artist\"></input>"
+		echo "<input class=button name=artist type=submit value=\"$artist\"></input>"
 	done
 	echo "</form>"
 fi

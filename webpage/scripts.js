@@ -23,3 +23,17 @@ function setToggles(){
 	if(volume=="0")
 		document.getElementById("mutetoggle").innerHTML = "Unmute";
 }
+
+function setButtonColor(){
+	document.getElementById("example").style.background = document.getElementById("buttonColor").value;
+}
+
+function setButtonTextColor(){
+        document.getElementById("example").style.color = document.getElementById("buttonText").value;
+}
+
+function setBackgroundColor(){
+        document.getElementById("body").style.background = document.getElementById("backgroundColor").value;
+}
+
+
