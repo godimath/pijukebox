@@ -16,6 +16,16 @@
         }
 
         echo shell_exec("../scripts/bash/output-html-status.sh");
+
+
+	if(isset($_POST["artists"])){
+                echo shell_exec("../scripts/bash/output-html-artists.sh");
+	}
+        if(isset($_POST["artist"])){
+                $artist=$_POST["artist"];
+                echo shell_exec("../scripts/bash/output-html-artists.sh \"$artist\"");
+        }
+
 ?>
 <form action=/ method=post>
 	<input class=button type=submit value="Pick a song" name="artists">
@@ -34,16 +44,7 @@
 	<p>
         <button class="button" onclick=sendMusicAction('s')>Try to Fix, Click if not playing</button>
 	<input id="action" name="action" value="" style="visibility:hidden">
-</form>
-<?php
-        if(isset($_POST["artists"])){
-                echo shell_exec("../scripts/bash/output-html-artists.sh");
-        }
-        if(isset($_POST["artist"])){
-                $artist=$_POST["artist"];
-                echo shell_exec("../scripts/bash/output-html-artists.sh \"$artist\"");
-        }
 
-?>
+</form>
 <a href=/settings.php>Settings</a><p>
 <script>setToggles()</script>

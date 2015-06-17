@@ -7,7 +7,6 @@ function gotoLink(link){
 }
 
 function setSongId(newId) {
-	alert(newId);
 	document.getElementById("songid").value=newId;
 }
 

@@ -9,7 +9,7 @@
 		$background = str_replace("#", "", $_POST["background"]);
 		$button = str_replace("#", "", $_POST["button"]);
 		$text = str_replace("#","", $_POST["text"]);
-		shell_exec("../scripts/bash/create-style-sheet.sh $background $button $text");
+		echo shell_exec("../scripts/bash/create-style-sheet.sh $background $button $text");
 	}
 ?>
 <form action=/settings.php method=post>

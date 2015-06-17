@@ -1,10 +1,10 @@
 body{
-	background-color: 5fad47;
+	background-color: 21a1de;
 	
 }
 .half-button{
-        background-color: 21a1de;
-	color: 000000;
+        background-color: 102457;
+	color: d4dde4;
         width: 49%;
         height: 200;
         font-size: 50;
@@ -13,8 +13,8 @@ body{
 
 
 .button{
-	color: 000000;
-	background-color: 21a1de;
+	color: d4dde4;
+	background-color: 102457;
 	width: 100%;
 	height: 200;
 	font-size: 50;
