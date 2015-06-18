@@ -12,8 +12,8 @@ else
 
 	SAVEIFS=$IFS
 	IFS=$(echo -en "\n\b")
-	test -e $TOPDIR/webapge/$1
-	if [ $? -eq 1 ]
+	test -e $TOPDIR/webpage/$1
+	if [ $? -eq 0 ]
 	then
 		echo "WARN: $1 already exists"
 	else

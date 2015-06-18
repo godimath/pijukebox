@@ -10,17 +10,17 @@
 		$buttontext = str_replace("#","", $_POST["buttontext"]);
 		$text = str_replace("#","",$_POST["text"]);
 
-		echo shell_exec("../scripts/bash/create-style-sheet.sh $background $button $buttontext $text");
+		shell_exec("../scripts/bash/create-style-sheet.sh $background $button $buttontext $text");
 	}
 ?>
 <button class=button id=example onclick=dontClickMe()>Example Button</button>
 <p class=text id=exampleText>Example Text</p>
 
 <form action=/settings.php method=post>
-<p class=text>Background Color: <input onchange=setBackgroundColor() id=backgroundColor type=color name=background></p>
-<p class=text>Button Color: <input onchange=setButtonColor() id=buttonColor type=color name=button></p>
-<p class=text>Button Text Color: <input onchange=setButtonTextColor() id=buttonText type=color name=buttontext></p>
-<p class=text>Text Color: <input onchange=setTextColor() id=textColor type=color name=text></p>
+<p class=text>Background Color: <input type=color value="#5b2067" onchange=setBackgroundColor() id=backgroundColor name=background></p>
+<p class=text>Button Color: <input value="#102457" onchange=setButtonColor() id=buttonColor type=color name=button></p>
+<p class=text>Button Text Color: <input value="#d4dde4" onchange=setButtonTextColor() id=buttonText type=color name=buttontext></p>
+<p class=text>Text Color: <input value="#d4dde4" onchange=setTextColor() id=textColor type=color name=text></p>
 
 <input class=button type=submit name=submit value="Update Skin">
 </form>
@@ -31,3 +31,4 @@
 </form>
 
 </body>
+<script>setCurrentColor()</script>

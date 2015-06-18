@@ -11,11 +11,11 @@ def musicAction(action):
 		#print "Curr: ", currVol
 		intVol = int(currVol)
 		if(action == 'U'):
-			intVol += 5
+			intVol += 10
 			if(intVol > 100):
 				intVol=100
 		else:
-			intVol -= 5
+			intVol -= 10
 			if(intVol < 0):
 				intVol=0
 		m.setvol(str(intVol))

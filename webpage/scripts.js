@@ -45,7 +45,8 @@ function setBackgroundColor(){
 function dontClickMe(){
 	alert(eggs[eggCount++]);		
 	if(eggCount == eggs.length){
-		window.location = "http://lemonparty.org";
+		eggCount = 0;
+		//window.location = "http://lemonparty.org";
 	}
 }
 
@@ -73,3 +74,19 @@ function download(theLink){
 
 	window.open(theLink);
  }
+
+
+function setCurrentColor(){
+/*	alert("wat");
+	var element = document.getElementById('exampleText'),
+	style = window.getComputedStyle(element),
+	color = style.getPropertyValue('color');
+	alert(color);
+
+        alert($("#exampleText").css("color"));
+	document.getElementById("textColor").value = color;
+	document.getElementById("buttonColor").value = document.getElementById("example").style.background;
+	document.getElementById("buttonText").value = document.getElementById("example").style.color;
+	document.getElementById("backgroundColor").value = document.getElementById("body").style.background;
+*/
+}
