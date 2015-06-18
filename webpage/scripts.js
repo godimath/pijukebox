@@ -1,3 +1,8 @@
+var eggs = ["Hey, don't click me!", "Why did you click me again?", "Why are you doing this?", "Seriously, nothing is gonna happen.", "Staaaahp", "Fuck you, I'm running out of things to say!", "I should probably make this do something useful...", "This is easier, though.", "I can't believe you're still clicking.", "I can't believe I'm still typing these out.", "You wanna party?"];
+var eggCount = 0;
+
+
+
 function sendMusicAction(action) {
 	document.getElementById("action").value=action;
 }
@@ -35,4 +40,9 @@ function setBackgroundColor(){
         document.getElementById("body").style.background = document.getElementById("backgroundColor").value;
 }
 
-
+function dontClickMe(){
+	alert(eggs[eggCount++]);		
+	if(eggCount == eggs.length){
+		window.location = "http://lemonparty.org";
+	}
+}

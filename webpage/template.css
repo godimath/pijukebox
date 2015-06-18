@@ -11,6 +11,15 @@ body{
 		
 }
 
+.third-button{
+        background-color: @@BUTTON@@;
+        color: @@TEXT@@;
+        width: 32%;
+        height: 200;
+        font-size: 40;
+
+}
+
 
 .button{
 	color: @@TEXT@@;
