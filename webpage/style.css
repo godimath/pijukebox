@@ -1,10 +1,10 @@
 body{
-	background-color: red;
+	background-color: 5b2067;
 	
 }
 .half-button{
-        background-color: green;
-	color: blue;
+        background-color: 102457;
+	color: d4dde4;
         width: 49%;
         height: 200;
         font-size: 50;
@@ -12,8 +12,8 @@ body{
 }
 
 .third-button{
-        background-color: green;
-        color: blue;
+        background-color: 102457;
+        color: d4dde4;
         width: 32%;
         height: 200;
         font-size: 40;
@@ -22,8 +22,8 @@ body{
 
 
 .button{
-	color: blue;
-	background-color: green;
+	color: d4dde4;
+	background-color: 102457;
 	width: 100%;
 	height: 200;
 	font-size: 50;
@@ -33,3 +33,8 @@ body{
 	height: 250px;
 }
 
+.text{
+	font-size: 50;
+	text-align: center;
+	color: d4dde4;
+}

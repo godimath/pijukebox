@@ -40,12 +40,12 @@ f.write("\n")
 f.write(state)
 f.close()
 
-htitle = "<p>Track: <b>" + title + "</b></p>"
-hartist = "<p>Artist: <b>" + artist + "</b></p>"
-hvol = "<p>Volume: <b id=volume>" + vol + "</b></p>"
-hstate = "<p>State: <b id=state>" + state + "</b></p>"
-hfile = "<p><audio controls class=player><source src=\"" + file + "\" type=\"audio/mpeg\"></audio></p>"
-hlink = "<p><a href=\"" + file + "\">Download</a></p>"
+htitle = "<p class=text>Track: <b>" + title + "</b></p>"
+hartist = "<p class=text>Artist: <b>" + artist + "</b></p>"
+hvol = "<p class=text>Volume: <b id=volume>" + vol + "</b></p>"
+hstate = "<p class=text>State: <b id=state>" + state + "</b></p>"
+hfile = "<p><audio class=player id=player><source src=\"" + file + "\" type=\"audio/mpeg\"></audio></p>"
+hlink = "<p><button class=button onclick=download(\"" + file + "\")>Download</button></p>"
 
 h = open(hstatfile, 'w')
 h.write(htitle)

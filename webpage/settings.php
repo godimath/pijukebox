@@ -1,23 +1,33 @@
 <body id="body">
 <script src="/scripts.js"></script>
 <link rel="stylesheet" href="/style.css">
-<a href=/>Homepage</a>
-<p>
-<a href=/settings.php>Refresh</a>
+<button class=button onclick=refreshPage("/")>Homepage</button>
+<p><p>
 <?php
 	if(isset($_POST["submit"])){
 		$background = str_replace("#", "", $_POST["background"]);
 		$button = str_replace("#", "", $_POST["button"]);
-		$text = str_replace("#","", $_POST["text"]);
-		echo shell_exec("../scripts/bash/create-style-sheet.sh $background $button $text");
+		$buttontext = str_replace("#","", $_POST["buttontext"]);
+		$text = str_replace("#","",$_POST["text"]);
+
+		echo shell_exec("../scripts/bash/create-style-sheet.sh $background $button $buttontext $text");
 	}
 ?>
-<form action=/settings.php method=post>
-Background Color: <input onchange=setBackgroundColor() id=backgroundColor type=color name=background><p>
-Button Color: <input onchange=setButtonColor() id=buttonColor type=color name=button><p>
-Button Text Color: <input onchange=setButtonTextColor() id=buttonText type=color name=text><p>
+<button class=button id=example onclick=dontClickMe()>Example Button</button>
+<p class=text id=exampleText>Example Text</p>
 
-<input type=submit name=submit value=Submit>
+<form action=/settings.php method=post>
+<p class=text>Background Color: <input onchange=setBackgroundColor() id=backgroundColor type=color name=background></p>
+<p class=text>Button Color: <input onchange=setButtonColor() id=buttonColor type=color name=button></p>
+<p class=text>Button Text Color: <input onchange=setButtonTextColor() id=buttonText type=color name=buttontext></p>
+<p class=text>Text Color: <input onchange=setTextColor() id=textColor type=color name=text></p>
+
+<input class=button type=submit name=submit value="Update Skin">
 </form>
-<button class=button id=example>Example</button>
+
+<form action=/ method=post>
+<button class="button" onclick=sendMusicAction('s')>Try to Fix, Click if not playing</button>
+<input id="action" name="action" value="" style="visibility:hidden">
+</form>
+
 </body>

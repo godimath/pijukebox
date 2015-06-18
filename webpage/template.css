@@ -4,7 +4,7 @@ body{
 }
 .half-button{
         background-color: @@BUTTON@@;
-	color: @@TEXT@@;
+	color: @@BUTTONTEXT@@;
         width: 49%;
         height: 200;
         font-size: 50;
@@ -13,7 +13,7 @@ body{
 
 .third-button{
         background-color: @@BUTTON@@;
-        color: @@TEXT@@;
+        color: @@BUTTONTEXT@@;
         width: 32%;
         height: 200;
         font-size: 40;
@@ -22,7 +22,7 @@ body{
 
 
 .button{
-	color: @@TEXT@@;
+	color: @@BUTTONTEXT@@;
 	background-color: @@BUTTON@@;
 	width: 100%;
 	height: 200;
@@ -33,3 +33,8 @@ body{
 	height: 250px;
 }
 
+.text{
+	font-size: 50;
+	text-align: center;
+	color: @@TEXT@@;
+}
