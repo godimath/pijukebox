@@ -1,6 +1,6 @@
 body{
 	background-color: @@BACKGROUND@@;
-	
+	font-size: 80px;	
 }
 .half-button{
         background-color: @@BUTTON@@;

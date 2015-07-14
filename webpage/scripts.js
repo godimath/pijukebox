@@ -2,7 +2,10 @@ var eggs = ["Hey, don't click me!", "Why did you click me again?", "Why are you 
 var eggCount = 0;
 
 function sendMusicAction(action) {
-	document.getElementById("action").value=action;
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?action="+action,false);
+	h.send(null);
+	document.getElementById("stats").innerHTML = h.responseText;
 }
 
 function gotoLink(link){

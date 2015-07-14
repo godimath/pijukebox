@@ -35,6 +35,10 @@ def musicAction(action):
 	elif(action=='c'):
 		#print "Clearing Playlist"
 		m.clear()
+	elif(action=='shuffleon'):
+		m.random(1);
+	elif(action=='shuffleoff'):
+		m.random(0);
 	elif(action=="update"):
 		#m.clear()
 		#os.system("bash /home/pi/music.sh /home/pi/Music/ & sleep 5")
