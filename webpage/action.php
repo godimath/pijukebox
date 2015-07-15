@@ -4,12 +4,13 @@
 		$action=$_GET["action"];
 		shell_exec("python ../scripts/python/musicAction.py $action");
 		
-		$newArtist = shell_exec("python ../scripts/python/musicAction.py artist");
-		$newTitle = shell_exec("python ../scripts/python/musicAction.py track");
-
-		echo "<b id=track>$newTitle</b> by <b id=artist>$newArtist</b>";
 		#shell_exec("python ../scripts/python/updateStats.py &");
 	}
+	else
+	if(isset($_GET["stats"])){
+		$stat=$_GET["stats"];
+		echo shell_exec("python ../scripts/python/musicAction.py $stat");
+	}	
 
         #if(isset($_POST["id"])){
         #       $id=$_POST["id"];

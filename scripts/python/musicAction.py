@@ -56,29 +56,41 @@ def musicAction(action):
 		state=m.status()["state"]
 		output= track + " " + vol + " " + state
 		print output
+
 	elif(action=="artist"):
 		try:
 			print m.currentsong()["artist"]
 		except KeyError:
 			print "Unknown Artist"		
+
 	elif(action=="track"):
 		try:
 			print m.currentsong()["title"]
 		except KeyError:
 			print "Unknown Track"
 
+	elif(action=="shuffle"):
+		print m.status()["random"]
+
+	elif(action=="state"):
+		print m.status()["state"]
+
 	elif(action=="file"):
 		print m.currentsong()["file"]
+
 	elif(action=="fullstatus"):
 		print m.status()
 		print m.currentsong()
+
 	elif(action=="M"):
 		if(int(m.status()["volume"]) > 0):
 			m.setvol(0)
 		else:
 			m.setvol(70)
+
 	elif(action=="volume"):
 		print m.status()["volume"]
+
 	else:
 		try:
 			intaction=int(action)

@@ -1,11 +1,47 @@
 var eggs = ["Hey, don't click me!", "Why did you click me again?", "Why are you doing this?", "Seriously, nothing is gonna happen.", "Staaaahp", "Fuck you, I'm running out of things to say!", "I should probably make this do something useful...", "This is easier, though.", "I can't believe you're still clicking.", "I can't believe I'm still typing these out.", "You wanna party?"];
 var eggCount = 0;
 
+function updateStats(){
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?stats=artist",false);
+	h.send(null);
+	var artist = h.responseText;
+
+	h .open( "GET", "/action.php?stats=track",false);
+	h.send(null);
+	var track = h.responseText;	
+
+	h .open( "GET", "/action.php?stats=shuffle",false);
+	h.send(null);
+	var shuffle = h.responseText;
+
+	h .open( "GET", "/action.php?stats=state",false);
+	h.send(null);
+	var state = h.responseText;	
+
+	if(state == "play\n")
+		state = "Playing";
+	else
+		state = "Paused";
+
+	if(shuffle == 1)
+		shuffle = "On";
+	else
+		shuffle = "Off";
+
+	document.getElementById("artist").innerHTML = artist;
+	document.getElementById("track").innerHTML = track;
+	document.getElementById("state").innerHTML = state;
+	document.getElementById("shuffle").innerHTML = shuffle;
+
+}
+
 function sendMusicAction(action) {
 	var h = new XMLHttpRequest();
 	h .open( "GET", "/action.php?action="+action,false);
 	h.send(null);
-	document.getElementById("stats").innerHTML = h.responseText;
+	updateStats();
+	//document.getElementById("stats").innerHTML = h.responseText;
 }
 
 function gotoLink(link){
@@ -17,7 +53,7 @@ function setSongId(newId) {
 }
 
 function setToggles(){
-	state=document.getElementById("state").innerHTML;
+	/*state=document.getElementById("state").innerHTML;
 	volume = document.getElementById("volume").innerHTML;
 
 	if(state=="play")
@@ -27,6 +63,7 @@ function setToggles(){
 
 	if(volume=="0")
 		document.getElementById("mutetoggle").innerHTML = "Unmute";
+	*/
 }
 
 function setTextColor(){
