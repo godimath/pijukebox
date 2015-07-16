@@ -2,6 +2,13 @@
 <link rel="stylesheet" href="/style.css">
 <body class="body">
 <center>
+</p>
+<button class=half-button onclick=refreshPage("/")>Refresh</button>
+<button class=half-button onclick=refreshPage("/settings.php")>Settings</button>
+</p>
+<p>
+<input type="range" class="slider" id="volumeSlider" onchange="setVolume()">
+</p>
 <p id="stats">
 <?php
         $newArtist = shell_exec("python ../scripts/python/musicAction.py artist");
@@ -25,18 +32,15 @@
 
 
 ?>
-</p>
-<button class=half-button onclick=refreshPage("/")>Refresh</button>
-<button class=half-button onclick=refreshPage("/settings.php")>Settings</button><p>
-<button id=playtoggle class="button" onclick=sendMusicAction('S')>Play/Pause</button>
 
+<p>
+<button id=playtoggle class="button" onclick=sendMusicAction('S')>Play/Pause</button>
+</p>
+
+<p>
 <button class="half-button" onclick=sendMusicAction('L')>Previous Song</button>
 <button class="half-button" onclick=sendMusicAction('R')>Next Song</button>
-
-<button class="half-button" onclick=sendMusicAction('D')>Volume Down</button>
-<button class="half-button" onclick=sendMusicAction('U')>Volume Up</button>
-
-<button id=mutetoggle class="button" onclick=sendMusicAction('M')>Mute</button>
+</p>
 
 <?php
 

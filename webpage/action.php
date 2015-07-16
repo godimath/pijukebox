@@ -10,7 +10,12 @@
 	if(isset($_GET["stats"])){
 		$stat=$_GET["stats"];
 		echo shell_exec("python ../scripts/python/musicAction.py $stat");
-	}	
+	}
+	if(isset($_GET["volume"])){
+		$volume=$_GET["volume"];
+		echo shell_exec("sudo -u tony ../scripts/bash/setVolume.sh $volume");
+	}
+
 
         #if(isset($_POST["id"])){
         #       $id=$_POST["id"];

@@ -1,6 +1,13 @@
 var eggs = ["Hey, don't click me!", "Why did you click me again?", "Why are you doing this?", "Seriously, nothing is gonna happen.", "Staaaahp", "Fuck you, I'm running out of things to say!", "I should probably make this do something useful...", "This is easier, though.", "I can't believe you're still clicking.", "I can't believe I'm still typing these out.", "You wanna party?"];
 var eggCount = 0;
 
+function setVolume(){
+	var newVol = document.getElementById("volumeSlider").value;
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?volume="+newVol,false);
+	h.send(null);
+}
+
 function updateStats(){
 	var h = new XMLHttpRequest();
 	h .open( "GET", "/action.php?stats=artist",false);

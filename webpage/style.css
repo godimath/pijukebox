@@ -2,9 +2,18 @@ body{
 	background-color: 5b2067;
 	font-size: 70px;	
 }
+
+.slider{
+	color: d4dde4;
+	background-color: 102457;
+	width:90%;
+	height: 150px;
+	font-size: 30px;
+}
+
 .half-button{
         background-color: 102457;
-	color: d4dde4;
+		color: d4dde4;
         width: 49%;
         height: 200;
         font-size: 50;
