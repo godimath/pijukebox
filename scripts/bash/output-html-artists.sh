@@ -5,28 +5,28 @@ IFS=$(echo -en "\n\b")
 
 if [ $# -ne 0 ]
 then
-	echo "<button class=button onclick=dontClickMe()>$@</button><p>"
-        echo "<form action=/ method=post>"
-	for track in $(ls "../data/$@")
+	echo "<p>$@</p>"
+	unsafe=$(echo "$@" | sed s/"%20"/" "/g)
+	
+	for track in $(ls "../data/$unsafe")
 	do
-		id=$(cat ../data/$@/$track)
-		if [ "$id" == "" ]
-		then
-			id=$track
-		fi
-		echo "<button class=third-button onclick=setSongId($id)>$track</button>"
+		id=$(cat "../data/$unsafe/$track")
+		#if [ "$id" == "" ]
+		#then
+			#id=$track
+		#fi
+		echo "<button class='third-button' onclick=setSongId($id)>$track</button>"
+
 		#echo "<input class=half-button type=submit name=id value=$id>$track</input>"
 	done
-	echo "<p><input id=songid name=id value=\"\" style=visibility:hidden></p>"
-        echo "</form>"
 else
-
-	echo "<button class=button onclick=dontClickMe()>Artists</button><p>"
-	echo "<form action=/ method=post>"
+	id=0
 	for artist in $(ls ../data --format=single-column)
 	do
-		echo "<input class=third-button name=artist type=submit value=\"$artist\"></input>"
+		safe=$(echo "$artist" | sed s/" "/"%20"/g)
+		echo "<button id=artist$id class=third-button onclick=showArtist('$safe',$id)>$artist</button>"
+		id=$(($id + 1))
 	done
-	echo "</form>"
+
 fi
 IFS=$SAVEIFS

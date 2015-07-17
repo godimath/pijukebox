@@ -1,18 +1,23 @@
 body{
-	background-color: @@BACKGROUND@@;
+	color: #ffffff;
+	background-color: #000000;
 	font-size: 70px;	
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	/*background-size: cover;*/
 }
 
 .slider{
-	color: @@BUTTONTEXT@@;
-	background-color: @@BUTTON@@;
+	color: #@@BUTTONTEXT@@;
+	background-color: #@@BUTTON@@;
 	width:90%;
 	height: 150px;
 	font-size: 30px;
 }
 .half-button{
-        background-color: @@BUTTON@@;
-		color: @@BUTTONTEXT@@;
+        background-color: #@@BUTTON@@;
+		color: #@@BUTTONTEXT@@;
         width: 49%;
         height: 200;
         font-size: 50;
@@ -20,8 +25,8 @@ body{
 }
 
 .third-button{
-        background-color: @@BUTTON@@;
-        color: @@BUTTONTEXT@@;
+        background-color: #@@BUTTON@@;
+        color: #@@BUTTONTEXT@@;
         width: 32%;
         height: 200;
         font-size: 40;
@@ -30,8 +35,8 @@ body{
 
 
 .button{
-	color: @@BUTTONTEXT@@;
-	background-color: @@BUTTON@@;
+	color: #@@BUTTONTEXT@@;
+	background-color: #@@BUTTON@@;
 	width: 100%;
 	height: 200;
 	font-size: 50;
@@ -44,5 +49,5 @@ body{
 .text{
 	font-size: 50;
 	text-align: center;
-	color: @@TEXT@@;
+	color: #@@TEXT@@;
 }

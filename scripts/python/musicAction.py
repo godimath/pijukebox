@@ -20,25 +20,41 @@ def musicAction(action):
 				intVol=0
 		m.setvol(str(intVol))
 		#print "Volume: ", str(intVol)
+
 	elif(action=='L'):
+
 		#print "Previous Song"
 		m.previous()
+
 	elif(action=='R'):
 		#print "Next Song"
 		m.next()
+
 	elif(action=='S'):
 		#print "Pause/Play"
 		m.pause()
+
 	elif(action=='s'):
 		#print "Starting playlist over"
 		m.play(0)
+
 	elif(action=='c'):
 		#print "Clearing Playlist"
 		m.clear()
+	elif(action=='toggleShuffle'):
+		currState = m.status()["random"]
+
+		if(currState == "1"):
+			m.random(0)
+		else:
+			m.random(1)
+
 	elif(action=='shuffleon'):
 		m.random(1);
+
 	elif(action=='shuffleoff'):
 		m.random(0);
+
 	elif(action=="update"):
 		#m.clear()
 		#os.system("bash /home/pi/music.sh /home/pi/Music/ & sleep 5")
@@ -90,6 +106,8 @@ def musicAction(action):
 
 	elif(action=="volume"):
 		print m.status()["volume"]
+	elif(action=="playlist"):
+		print m.playlistinfo()
 
 	else:
 		try:

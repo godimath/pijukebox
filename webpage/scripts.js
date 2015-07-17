@@ -1,6 +1,35 @@
 var eggs = ["Hey, don't click me!", "Why did you click me again?", "Why are you doing this?", "Seriously, nothing is gonna happen.", "Staaaahp", "Fuck you, I'm running out of things to say!", "I should probably make this do something useful...", "This is easier, though.", "I can't believe you're still clicking.", "I can't believe I'm still typing these out.", "You wanna party?"];
 var eggCount = 0;
 
+function showArtist(artist,buttonId){
+
+	document.getElementById("emptyView").innerHTML = "Loading " + artist;
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?view="+artist,false);
+	h.send(null);
+
+	document.getElementById("emptyView").innerHTML = h.responseText;
+
+
+}
+
+function viewTracks(){
+	alert("This is not yet implemented :P");
+}
+
+function viewArtists(){
+	document.getElementById("viewArtistButton").innerHTML = "Loading";
+	var h = new XMLHttpRequest();
+	document.getElementById("viewArtistButton").innerHTML = "Loading.";
+	h .open( "GET", "/action.php?view=artists",false);
+	document.getElementById("viewArtistButton").innerHTML = "Loading..";
+	h.send(null);
+	document.getElementById("viewArtistButton").innerHTML = "Loading...";
+
+	document.getElementById("emptyView").innerHTML = h.responseText;
+	document.getElementById("viewArtistButton").innerHTML = "View Artists";
+}
+
 function setVolume(){
 	var newVol = document.getElementById("volumeSlider").value;
 	var h = new XMLHttpRequest();
@@ -8,7 +37,15 @@ function setVolume(){
 	h.send(null);
 }
 
+function toggleShuffle(){
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?action=toggleShuffle",false);
+	h.send(null);
+
+}
+
 function updateStats(){
+
 	var h = new XMLHttpRequest();
 	h .open( "GET", "/action.php?stats=artist",false);
 	h.send(null);
@@ -26,21 +63,31 @@ function updateStats(){
 	h.send(null);
 	var state = h.responseText;	
 
-	if(state == "play\n")
-		state = "Playing";
-	else
-		state = "Paused";
+	h .open( "GET", "/action.php?volume=get",false);
+	h.send(null);
+	var newVolume = h.responseText;	
+
+	if(state == "play\n"){
+		document.getElementById("playtoggle").innerHTML = "Pause";
+		document.getElementById("body").style.backgroundImage = "url(http://stream1.gifsoup.com/view1/20140402/5010921/equalizer-o.gif)";
+		
+	}
+	else{
+		document.getElementById("body").style.backgroundImage = "none";
+		document.getElementById("playtoggle").innerHTML = "Play";
+	}
 
 	if(shuffle == 1)
 		shuffle = "On";
 	else
 		shuffle = "Off";
 
+
+
 	document.getElementById("artist").innerHTML = artist;
 	document.getElementById("track").innerHTML = track;
-	document.getElementById("state").innerHTML = state;
 	document.getElementById("shuffle").innerHTML = shuffle;
-
+	document.getElementById("volumeSlider").value = Number(newVolume);
 }
 
 function sendMusicAction(action) {
@@ -56,7 +103,10 @@ function gotoLink(link){
 }
 
 function setSongId(newId) {
-	document.getElementById("songid").value=newId;
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?id="+newId,false);
+	h.send(null);
+	
 }
 
 function setToggles(){
