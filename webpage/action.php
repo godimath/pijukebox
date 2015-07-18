@@ -29,8 +29,12 @@
     	if($view == "artists"){
     		echo shell_exec("../scripts/bash/output-html-artists.sh");
     	}else{
-    		echo shell_exec("../scripts/bash/output-html-artists.sh $view");
-    	}
+		if($view == "tracks"){
+			echo shell_exec("../scripts/bash/output-html-tracks.sh");
+		}
+		else{
+	    		echo shell_exec("../scripts/bash/output-html-artists.sh $view");
+    	}	}
 
     }
 

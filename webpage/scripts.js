@@ -14,27 +14,12 @@ function showArtist(artist,buttonId){
 }
 
 function viewTracks(){
-	alert("This is not yet implemented :P");
-}
-
-function viewArtists(){
-	document.getElementById("viewArtistButton").innerHTML = "Loading";
-	var h = new XMLHttpRequest();
-	document.getElementById("viewArtistButton").innerHTML = "Loading.";
-	h .open( "GET", "/action.php?view=artists",false);
-	document.getElementById("viewArtistButton").innerHTML = "Loading..";
+	//alert("This is not yet implemented :P"); 
+	//document.getElementById("emptyView").innerHTML = "Loading " + artist;}
+      	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?view=tracks",false);
 	h.send(null);
-	document.getElementById("viewArtistButton").innerHTML = "Loading...";
-
-	document.getElementById("emptyView").innerHTML = h.responseText;
-	document.getElementById("viewArtistButton").innerHTML = "View Artists";
-}
-
-function setVolume(){
-	var newVol = document.getElementById("volumeSlider").value;
-	var h = new XMLHttpRequest();
-	h .open( "GET", "/action.php?volume="+newVol,false);
-	h.send(null);
+	alert(h.responseText);
 }
 
 function toggleShuffle(){
