@@ -36,7 +36,7 @@
 </p>
 <p>
 <button id="viewArtistButton" class="half-button" onclick=viewArtists()>View Artists</button>
-<button class="half-button" onclick=viewTracks()>View Tracks</button>
+<button id="viewTrackButton" class="half-button" onclick=viewTracks()>View Tracks</button>
 </p>
 <p id="emptyView">
 </p>

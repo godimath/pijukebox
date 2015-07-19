@@ -3,26 +3,17 @@
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
+
 for artist in $(ls ../data --format=single-column)
 do
 	for track in $(ls "../data/$artist")
 	do
 		if [ $# -ne 0 ]
 		then
-			match=$(echo $track | grep "^$1")
-			if [ $match != "" ]
-			then
-                                echo "<button class=button onclick=setSongId($id)>$track</button>"
-			fi
-
+			match=$($track" | grep "^$1)
+			echo "<button id"
 		else
-			id=$(cat "../data/$artist/$track")
-			if [ "$id" == "" ]
-			then
-				id=$track
-			else
-				echo "<button class=button onclick=setSongId($id)>$track</button>"
-			fi
+			echo "$track"
 		fi
 	done
 

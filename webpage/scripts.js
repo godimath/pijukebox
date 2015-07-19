@@ -1,25 +1,53 @@
 var eggs = ["Hey, don't click me!", "Why did you click me again?", "Why are you doing this?", "Seriously, nothing is gonna happen.", "Staaaahp", "Fuck you, I'm running out of things to say!", "I should probably make this do something useful...", "This is easier, though.", "I can't believe you're still clicking.", "I can't believe I'm still typing these out.", "You wanna party?"];
 var eggCount = 0;
 
+function setVolume(){
+	var newVol = document.getElementById("volumeSlider").value;
+	var h = new XMLHttpRequest();
+	h .open( "GET", "/action.php?volume="+newVol,false);
+	h.send(null);
+
+
+}
+
 function showArtist(artist,buttonId){
 
-	document.getElementById("emptyView").innerHTML = "Loading " + artist;
+	document.getElementById("viewArtistButton").innerHTML = "Loading " + artist;
+        document.getElementById("emptyView").innerHTML = "Loading " + artist;
 	var h = new XMLHttpRequest();
 	h .open( "GET", "/action.php?view="+artist,false);
 	h.send(null);
 
 	document.getElementById("emptyView").innerHTML = h.responseText;
-
-
 }
 
 function viewTracks(){
 	//alert("This is not yet implemented :P"); 
-	//document.getElementById("emptyView").innerHTML = "Loading " + artist;}
-      	var h = new XMLHttpRequest();
-	h .open( "GET", "/action.php?view=tracks",false);
+	var letter = prompt("Enter The First Letter");
+
+        var h = new XMLHttpRequest();
+	
+	if(letter == ""){
+ 	       document.getElementById("viewTrackButton").innerHTML = "Loading All Tracks";
+	        document.getElementById("emptyView").innerHTML = "Loading All Tracks";
+		h .open( "GET", "/action.php?view=tracks",false);
+	}else{
+	        document.getElementById("viewTrackButton").innerHTML = "Loading Tracks: "+ letter;
+	        document.getElementById("emptyView").innerHTML = "Loading Tracks: " + letter;
+		h.open("GET", "/action.php?view=tracks&letter="+letter,false);
+	}
 	h.send(null);
-	alert(h.responseText);
+	document.getElementById("emptyView").innerHTML = h.responseText;
+
+	//alert(h.responseText);
+}
+function viewArtists(){
+	document.getElementById("viewArtistButton").innerHTML = "Loading Artists";
+	document.getElementById("emptyView").innerHTML = "Loading Artists";
+	var h = new XMLHttpRequest();
+	h.open( "GET", "/action.php?view=artists", false);
+	h.send(null);
+	document.getElementById("emptyView").innerHTML = h.responseText;
 }
 
 function toggleShuffle(){

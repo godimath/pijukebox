@@ -3,7 +3,6 @@
 	if(isset($_GET["action"])){
 		$action=$_GET["action"];
 		echo shell_exec("python ../scripts/python/musicAction.py $action");
-		
 		#shell_exec("python ../scripts/python/updateStats.py &");
 	}
 	else
@@ -30,7 +29,13 @@
     		echo shell_exec("../scripts/bash/output-html-artists.sh");
     	}else{
 		if($view == "tracks"){
-			echo shell_exec("../scripts/bash/output-html-tracks.sh");
+			if(isset($_GET["letter"])){
+				$letter = $_GET["letter"];
+				echo shell_exec("../scripts/bash/output-html-tracks.sh $letter | sort ");
+			}
+			else{
+				echo shell_exec("../scripts/bash/output-html-tracks.sh | sort ");
+			}
 		}
 		else{
 	    		echo shell_exec("../scripts/bash/output-html-artists.sh $view");
