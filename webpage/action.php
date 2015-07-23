@@ -25,24 +25,32 @@
     }
     if(isset($_GET["view"])){
     	$view = $_GET["view"];
+
     	if($view == "artists"){
     		echo shell_exec("../scripts/bash/output-html-artists.sh");
-    	}else{
-		if($view == "tracks"){
-			if(isset($_GET["letter"])){
-				$letter = $_GET["letter"];
-				echo shell_exec("../scripts/bash/output-html-tracks.sh $letter | sort ");
+    	}
+
+    	else{
+
+			if($view == "tracks"){
+
+				if(isset($_GET["letter"])){
+					$letter = $_GET["letter"];
+					echo shell_exec("../scripts/bash/output-html-tracks.sh $letter | sort");
+				}
+
+				else{
+					echo shell_exec("../scripts/bash/output-html-tracks.sh | sort ");
+				}
+				
 			}
 			else{
-				echo shell_exec("../scripts/bash/output-html-tracks.sh | sort ");
-			}
-		}
-		else{
-	    		echo shell_exec("../scripts/bash/output-html-artists.sh $view");
-    	}	}
+		    		echo shell_exec("../scripts/bash/output-html-artists.sh $view | sort");
+    		}
+    	}
 
     }
-
+	
 
         #if(isset($_POST["id"])){
         #       $id=$_POST["id"];

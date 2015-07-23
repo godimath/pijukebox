@@ -11,7 +11,7 @@ body{
 .slider{
 	color: #@@BUTTONTEXT@@;
 	background-color: #@@BUTTON@@;
-	width:90%;
+	width:99%;
 	height: 150px;
 	font-size: 30px;
 }
