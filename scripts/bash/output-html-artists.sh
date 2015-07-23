@@ -20,7 +20,7 @@ then
 		#echo "<input class=half-button type=submit name=id value=$id>$track</input>"
 	done
 
-	echo -n "<p>End</p>"
+	echo -n "<p>Done</p>"
 else
 	echo "<p><u>All artists</u></p>"
 	id=0
@@ -30,6 +30,6 @@ else
 		echo -n "<button id=artist$id class=button onclick=showArtist('$safe',$id)>$artist</button><br>"
 		id=$(($id + 1))
 	done
-	echo -n "<p>End</p>"
+	echo -n "<p>Done</p>"
 fi
 IFS=$SAVEIFS

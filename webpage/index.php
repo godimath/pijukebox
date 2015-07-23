@@ -46,4 +46,4 @@
 </center>
 </body>
 <script type="text/javascript">updateStats()</script>
-<script>setInterval("updateStats()",5000)</script>
+<script>setInterval("updateStats()",1000)</script>

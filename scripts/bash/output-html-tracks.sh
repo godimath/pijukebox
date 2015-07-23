@@ -29,7 +29,7 @@ else
 		echo -n "<button class=button onclick=setSongId($id)>$track by $artist</button></br>"
 done
 fi
-
+echo "<p>Done</p>"
 exit 0
 
 
