@@ -15,19 +15,19 @@ then
 		#then
 			#id=$track
 		#fi
-		echo -n "<p><button class='button' onclick=setSongId($id)>$track</button></p>"
+		echo -n "<br><button class='button' onclick=setSongId($id)>$track</button>"
 
 		#echo "<input class=half-button type=submit name=id value=$id>$track</input>"
 	done
 
 	echo -n "<p>End</p>"
 else
-
+	echo "<p><u>All artists</u></p>"
 	id=0
 	for artist in $(ls ../data --format=single-column)
 	do
 		safe=$(echo -n "$artist" | sed s/" "/"%20"/g)
-		echo -n "<br><button id=artist$id class=button onclick=showArtist('$safe',$id)>$artist</button>"
+		echo -n "<button id=artist$id class=button onclick=showArtist('$safe',$id)>$artist</button><br>"
 		id=$(($id + 1))
 	done
 	echo -n "<p>End</p>"

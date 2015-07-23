@@ -1,22 +1,47 @@
 #!/bin/bash
-
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
-echo -n "Found tracks: $1"
+echo "<p><u>Found tracks: $@</u></p>"
+
+if [ $# -ne 0 ]
+	then
+
+	for song in $(find "../data/" | grep "../data/[[:alpha:] ]*/$@[[:alpha:] ]*$" | sort)
+	do
+		clean=$(echo -n "$song" | sed s/"\.\.\/data\/"/""/g)
+		id=$(cat "$song")
+		artist=$(echo -n "$clean" | grep "^.*/" -o | sed s/"\/"/""/g)
+		track=$(echo -n "$clean" | grep "/.*$" -o | sed s/"\/"/""/g)
+		
+		echo -n "<button class=button onclick=setSongId($id)>$track by $artist</button></br>"
+	done
+else
+	for song in $(find "../data/"| grep "../data/[[:print:] ]*/" | sort)
+	do
+		clean=$(echo -n "$song" | sed s/"\.\.\/data\/"/""/g)
+		id=$(cat "$song")
+		artist=$(echo -n "$clean" | grep "^.*/" -o | sed s/"\/"/""/g)
+		track=$(echo -n "$clean" | grep "/.*$" -o | sed s/"\/"/""/g)
+		
+
+
+		echo -n "<button class=button onclick=setSongId($id)>$track by $artist</button></br>"
+done
+fi
+
+exit 0
+
 
 for artist in $(ls ../data --format=single-column)
 do
 	for track in $(ls "../data/$artist")
 	do
 
-		if [ $# -ne 0 ]
-		then
 			match=$(echo -n $track | grep "^$1")
-			id=$(cat "../data/$artist/$track")
 			if [ "$match" != "" ]
 			then
-                echo -n "<br><button class=button onclick=setSongId($id)>$track</button>"
+                echo -n "<button class=button onclick=setSongId($id)>$track</button><br>"
 			fi
 
 		else
@@ -25,7 +50,7 @@ do
 			then
 				id=$track
 			else
-				echo -n "<br><button class=button onclick=setSongId($id)>$track by $artist</button>"
+				echo -n "<button class=button onclick=setSongId($id)>$track by $artist</button><br>"
 			fi
 		fi
 	done
