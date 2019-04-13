@@ -1,9 +1,11 @@
 <?php
 
 	if(isset($_GET["action"])){
-		$action=$_GET["action"];
-		echo shell_exec("python ../scripts/python/musicAction.py $action");
-		#shell_exec("python ../scripts/python/updateStats.py &");
+		if(ctype_alnum($_GET["action"])){
+			$action=$_GET["action"];
+			echo shell_exec("python ../scripts/python/musicAction.py $action");
+			#shell_exec("python ../scripts/python/updateStats.py &");	
+		}
 	}
 	else
 	if(isset($_GET["stats"])){
